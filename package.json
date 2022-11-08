@@ -2,7 +2,8 @@
   "name": "cocreate-examples",
   "scripts": {
     "gen:types": "typechain --out-dir='typechain-types' --target=ethers-v5 './node_modules/@usecocreate/contract-sdk/abi/**/*.json'",
-    "create-token": "hardhat run scripts/create-token.ts"
+    "tsc": "tsc",
+    "create-token": "hardhat run src/create-token.ts"
   },
   "devDependencies": {
     "@usecocreate/contract-sdk": "^0.0.1-5b082f9-cf25a59",
