@@ -1,16 +1,11 @@
-import { CoCreateProtocol__factory } from "../typechain-types";
-import {
-  COCREATE_PROTOCOL_GOERLI_ADDR,
-  deployCoCreateProject,
-  wallet,
-} from "./utils";
 import { ethers } from "hardhat";
+import { deployCoCreateProject, wallet } from "./utils";
 
 async function createToken() {
   const coCreateProject = await deployCoCreateProject();
   console.log(`coCreateProject created at ${coCreateProject.address}`);
   console.log("Deploying a ApeCoin Token with a supply of 1,000,000");
-  const txn = await coCreateProject.deployInstanceToken(
+  const txn = await coCreateProject.deployProjectToken(
     "ApeCoin",
     "Yuga Labs Token",
     "APE",
@@ -22,7 +17,13 @@ async function createToken() {
   );
   console.log("Waiting for 1 confirmation");
   const receipt = await txn.wait(1);
-  console.log("Successfully deployed ApeCoin Token");
+  const tokenDeployedEvent = receipt.events?.find(
+    (e) => e.event === "ProjectTokenDeployed"
+  );
+  console.log(
+    // @ts-ignore
+    `Successfully deployed ApeCoin Token at address ${tokenDeployedEvent.args.token}`
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -6,7 +6,7 @@
     "create-token": "hardhat run src/create-token.ts"
   },
   "devDependencies": {
-    "@usecocreate/contract-sdk": "^0.0.1-5b082f9-cf25a59",
+    "@usecocreate/contract-sdk": "0.0.1-988097b",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "typechain": "^8.1.1",
     "dotenv": "^16.0.3",
