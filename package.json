@@ -4,7 +4,8 @@
     "gen:types": "typechain --out-dir='typechain-types' --target=ethers-v5 './node_modules/@usecocreate/contract-sdk/abi/**/*.json'",
     "tsc": "tsc --noEmit",
     "create-token": "hardhat run src/createToken.ts",
-    "mint-burn": "hardhat run src/mintAndBurn.ts"
+    "mint-burn": "hardhat run src/mintAndBurn.ts",
+    "transfer-restrictions": "hardhat run src/transferRestrictions.ts"
   },
   "devDependencies": {
     "@usecocreate/contract-sdk": "0.0.1-988097b",

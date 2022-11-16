@@ -23,7 +23,7 @@ Generate the typechain files first by running: `npm run gen:types`.
 
 ## Examples
 
-1. Token Creation
+### 1. Token Creation
 
 See the `src/createToken.ts` script for an example on how to create a token. Run it using:
 
@@ -31,10 +31,18 @@ See the `src/createToken.ts` script for an example on how to create a token. Run
 npm run create-token
 ```
 
-2. Mint and Burn
+### 2. Mint and Burn
 
 See the `src/mintAndBurn.ts` script for an example on how to mint and burn a token after creation. Run it using:
 
 ```sh
 npm run mint-burn
+```
+
+### 3. Mint and Burn
+
+See the `src/transferRestrictions.ts` script for an example on how to manage a tokens transfer restrictions. Run it using:
+
+```sh
+npm run transfer-restrictions
 ```
