@@ -1,4 +1,8 @@
-# Sample CoCreate Project
+# CoCreate Examples
+
+This repository contains examples on how one can use the CoCreate contracts and directly integrate with them in a variety of ways.
+
+We have examples which cover: project creation, token creation, mint/burn and transfer-restrictions management.
 
 ## Setup
 
@@ -15,13 +19,9 @@ cp .env.example .env
 # https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key
 ```
 
-## Deploying a token
-
-This project demonstrates a basic CoCreate use case.
-
-Generate the typechain files first by running: `npm run gen:types`.
-
 ## Examples
+
+Please complete the Setup and setup your PRIVATE_KEY before running these examples.
 
 ### 1. Token Creation
 

@@ -23,7 +23,20 @@ export const wallet = new ethers.Wallet(privateKey, goerliProvider);
 export const COCREATE_PROTOCOL_GOERLI_ADDR =
   "0x8263d477DBAA9E3C197dB3C14C290629526E87Af";
 
+async function balanceCheck() {
+  const balance = await goerliProvider.getBalance(wallet.address);
+  console.log(`Your wallet balance: ${ethers.utils.formatEther(balance)}`);
+  if (balance.eq(ethers.utils.parseEther("0"))) {
+    throw new Error(`Your wallet ${wallet.address} has 0 testnet ETH. Please fund it with some testnet ETH`);
+  }
+
+  if (balance.lt(ethers.utils.parseEther("0.5"))) {
+    console.log(`WARNING: Your wallet ${wallet.address} has low testnet ETH: ${ethers.utils.formatEther(balance)}. Please fund it with some testnet ETH`);
+  }
+}
+
 export async function deployCoCreateProject(): Promise<CoCreateProject> {
+  await balanceCheck();
   const coCreateLaunch = CoCreateLaunch__factory.connect(
     COCREATE_PROTOCOL_GOERLI_ADDR,
     wallet
