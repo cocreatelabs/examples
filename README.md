@@ -6,6 +6,8 @@ We have examples which cover: project creation, token creation, mint/burn and tr
 
 ## Setup
 
+Please complete the setup before trying out any of the examples
+
 ```shell
 # Install all dependencies
 npm install
@@ -20,6 +22,8 @@ cp .env.example .env
 ```
 
 ## Examples
+
+All of the examples run on Goerli Testnet.
 
 Please complete the Setup and setup your PRIVATE_KEY before running these examples.
 
