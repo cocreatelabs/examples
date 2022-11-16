@@ -21,8 +21,20 @@ This project demonstrates a basic CoCreate use case.
 
 Generate the typechain files first by running: `npm run gen:types`.
 
-See the `src/create-token.ts` script for an example on how to create a token. Run it using:
+## Examples
 
-```shell
+1. Token Creation
+
+See the `src/createToken.ts` script for an example on how to create a token. Run it using:
+
+```sh
 npm run create-token
+```
+
+2. Mint and Burn
+
+See the `src/mintAndBurn.ts` script for an example on how to mint and burn a token after creation. Run it using:
+
+```sh
+npm run mint-burn
 ```

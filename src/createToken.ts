@@ -6,13 +6,21 @@ async function createToken() {
   console.log(`coCreateProject created at ${coCreateProject.address}`);
   console.log("Deploying a ApeCoin Token with a supply of 1,000,000");
   const txn = await coCreateProject.deployProjectToken(
+    // name
     "ApeCoin",
+    // description
     "Yuga Labs Token",
+    // token symbol
     "APE",
+    // initial supply
     ethers.utils.parseEther("1000000"),
+    // isFixedSupply
     true,
+    // isTransferAllowlisted
     false,
+    // mint recipients
     [await wallet.getAddress()],
+    // mint amounts
     [ethers.utils.parseEther("1000000")]
   );
   console.log("Waiting for 1 confirmation");
