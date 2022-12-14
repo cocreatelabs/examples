@@ -10,7 +10,7 @@ import {
 dotenv.config();
 
 export const goerliProvider = new ethers.providers.JsonRpcProvider(
-  "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+  "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
 );
 
 if (!process.env.PRIVATE_KEY) {
@@ -21,7 +21,7 @@ const privateKey = "0x" + process.env.PRIVATE_KEY;
 export const wallet = new ethers.Wallet(privateKey, goerliProvider);
 
 export const COCREATE_PROTOCOL_GOERLI_ADDR =
-  "0xF4852598B2C396Bd600605f4330108A6Bf5A0502";
+  "0x728235eB296024347BAe9e7582FCfd621d8Eb417";
 
 async function balanceCheck() {
   const balance = await goerliProvider.getBalance(wallet.address);

@@ -1,14 +1,14 @@
 {
   "name": "cocreate-examples",
   "scripts": {
-    "gen:types": "typechain --out-dir='typechain-types' --target=ethers-v5 './node_modules/@usecocreate/contract-sdk/abi/**/*.json'",
+    "gen:types": "rm -rf typechain-types && typechain --out-dir='typechain-types' --target=ethers-v5 './node_modules/@usecocreate/contract-sdk/abi/**/*.json'",
     "tsc": "tsc --noEmit",
     "create-token": "hardhat run src/createToken.ts",
     "mint-burn": "hardhat run src/mintAndBurn.ts",
     "transfer-restrictions": "hardhat run src/transferRestrictions.ts"
   },
   "devDependencies": {
-    "@usecocreate/contract-sdk": "0.0.1-988097b",
+    "@usecocreate/contract-sdk": "0.0.1-b268d48",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "typechain": "^8.1.1",
     "dotenv": "^16.0.3",
