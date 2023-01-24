@@ -3,7 +3,7 @@ import { ProjectToken__factory } from "../typechain-types";
 import { deployCoCreateProject, wallet } from "./utils";
 
 async function mintAndBurn() {
-  const coCreateProject = await deployCoCreateProject();
+  const coCreateProject = await deployCoCreateProject("project name");
   console.log(`coCreateProject created at ${coCreateProject.address}`);
   console.log("Deploying a ApeCoin Token with a supply of 0");
   const txn = await coCreateProject.deployProjectToken(

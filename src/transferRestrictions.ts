@@ -3,7 +3,7 @@ import { ProjectToken__factory } from "../typechain-types";
 import { deployCoCreateProject, wallet } from "./utils";
 
 async function transferRestrictions() {
-  const coCreateProject = await deployCoCreateProject();
+  const coCreateProject = await deployCoCreateProject("project name");
   console.log(`coCreateProject created at ${coCreateProject.address}`);
   console.log("Deploying a ApeCoin Token with a supply of 1,000,000");
   // isTransferAllowlisted is false - There are no transfer restrictions set

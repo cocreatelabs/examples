@@ -3,15 +3,20 @@
   "scripts": {
     "gen:types": "typechain --out-dir='typechain-types' --target=ethers-v5 './node_modules/@usecocreate/contract-sdk/abi/**/*.json'",
     "tsc": "tsc --noEmit",
+    "create-project": "hardhat run src/createProject.ts",
     "create-token": "hardhat run src/createToken.ts",
+    "create-nft": "hardhat run src/createNFT.ts",
     "mint-burn": "hardhat run src/mintAndBurn.ts",
     "transfer-restrictions": "hardhat run src/transferRestrictions.ts"
   },
   "devDependencies": {
-    "@usecocreate/contract-sdk": "0.0.1-988097b",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "typechain": "^8.1.1",
+    "@usecocreate/contract-sdk": "0.0.1-7c0e2e0",
     "dotenv": "^16.0.3",
-    "hardhat": "^2.12.2"
+    "hardhat": "^2.12.2",
+    "typechain": "^8.1.1"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.2"
   }
 }

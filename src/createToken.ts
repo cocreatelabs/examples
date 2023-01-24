@@ -1,27 +1,36 @@
 import { ethers } from "hardhat";
-import { deployCoCreateProject, wallet } from "./utils";
+import { CoCreateProject__factory } from "../typechain-types";
+import { wallet } from "./utils";
 
 async function createToken() {
-  const coCreateProject = await deployCoCreateProject();
-  console.log(`coCreateProject created at ${coCreateProject.address}`);
-  console.log("Deploying a ApeCoin Token with a supply of 1,000,000");
+  // Set coCreateProjectAddr here
+  const coCreateProjectAddr = "0x5f3e0Cc5b4745131046f568592a120C5Ab128206";
+  const coCreateProject = CoCreateProject__factory.connect(
+    // @ts-ignore
+    coCreateProjectAddr,
+    wallet
+  );
+  const projectName = await coCreateProject.name();
+  console.log(`coCreateProject ${projectName} at ${coCreateProject.address}`);
+
+  console.log("Deploying a DogPoints Token with a supply of 0");
   const txn = await coCreateProject.deployProjectToken(
     // name
-    "ApeCoin",
+    "DogPoints",
     // description
-    "Yuga Labs Token",
+    "Dog Points",
     // token symbol
-    "APE",
+    "DOGS",
     // initial supply
-    ethers.utils.parseEther("1000000"),
+    ethers.utils.parseEther("0"),
     // isFixedSupply
-    true,
+    false,
     // isTransferAllowlisted
     false,
     // mint recipients
-    [await wallet.getAddress()],
+    [],
     // mint amounts
-    [ethers.utils.parseEther("1000000")]
+    []
   );
   console.log("Waiting for 1 confirmation");
   const receipt = await txn.wait(1);
@@ -30,7 +39,7 @@ async function createToken() {
   );
   console.log(
     // @ts-ignore
-    `Successfully deployed ApeCoin Token at address ${tokenDeployedEvent.args.token}`
+    `Successfully deployed DogPoints at address ${tokenDeployedEvent.args.token}`
   );
 }
 
