@@ -4,7 +4,7 @@ import { wallet, getPolygonFee } from "./utils";
 
 async function createNFT() {
   // Set coCreateProjectAddr here
-  const coCreateProjectAddr = "0xDE608bb96Be4C7132c3b273F25EEfe107856C876";
+  const coCreateProjectAddr = "0x1e4d7367592185bAE4542E4a94ccc5c779EfBe7e";
   const coCreateProject = CoCreateProject__factory.connect(
     // @ts-ignore
     coCreateProjectAddr,
@@ -18,10 +18,10 @@ async function createNFT() {
     "Test NFT",
     "TST",
     "https://bafybeigeh7c662nadnbm7igsaulo74iwkr6mua344txj54x6rhimttj7fy.ipfs.nftstorage.link/",
-    wallet.address,
+    "0xdf6c46bC8A14Be0a1E1688b7b52732C2781023D1",
     0,
     5000,
-    wallet.address,
+    "0xdf6c46bC8A14Be0a1E1688b7b52732C2781023D1",
   ]);
   const tx = await coCreateProject.deployProxy("CoCreateERC721A", calldata, await getPolygonFee());
   const receipt = await tx.wait();
